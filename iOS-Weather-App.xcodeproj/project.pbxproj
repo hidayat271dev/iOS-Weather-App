@@ -17,6 +17,12 @@
 		EC21464A215CBC8A006D3D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC214648215CBC8A006D3D40 /* LaunchScreen.storyboard */; };
 		EC214655215CBC8A006D3D40 /* iOS_Weather_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC214654215CBC8A006D3D40 /* iOS_Weather_AppTests.swift */; };
 		EC214660215CBC8A006D3D40 /* iOS_Weather_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21465F215CBC8A006D3D40 /* iOS_Weather_AppUITests.swift */; };
+		ECC4990D215CC2D000D5F393 /* Homepage_Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49907215CC2D000D5F393 /* Homepage_Presenter.swift */; };
+		ECC4990E215CC2D000D5F393 /* Homepage_Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49908215CC2D000D5F393 /* Homepage_Router.swift */; };
+		ECC4990F215CC2D000D5F393 /* Homepage_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49909215CC2D000D5F393 /* Homepage_ViewController.swift */; };
+		ECC49910215CC2D000D5F393 /* Homepage_Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4990A215CC2D000D5F393 /* Homepage_Protocols.swift */; };
+		ECC49911215CC2D000D5F393 /* Homepage_Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */; };
+		ECC49912215CC2D000D5F393 /* Homepage_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,12 @@
 		EC21465B215CBC8A006D3D40 /* iOS-Weather-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Weather-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC21465F215CBC8A006D3D40 /* iOS_Weather_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Weather_AppUITests.swift; sourceTree = "<group>"; };
 		EC214661215CBC8A006D3D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECC49907215CC2D000D5F393 /* Homepage_Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_Presenter.swift; sourceTree = "<group>"; };
+		ECC49908215CC2D000D5F393 /* Homepage_Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_Router.swift; sourceTree = "<group>"; };
+		ECC49909215CC2D000D5F393 /* Homepage_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_ViewController.swift; sourceTree = "<group>"; };
+		ECC4990A215CC2D000D5F393 /* Homepage_Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_Protocols.swift; sourceTree = "<group>"; };
+		ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_Interactor.swift; sourceTree = "<group>"; };
+		ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Homepage_ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +136,11 @@
 		EC21463E215CBC88006D3D40 /* iOS-Weather-App */ = {
 			isa = PBXGroup;
 			children = (
-				EC21463F215CBC88006D3D40 /* AppDelegate.swift */,
+				EC214670215CC199006D3D40 /* app-module */,
+				EC21466F215CBF96006D3D40 /* app-resource */,
+				EC21466E215CBF80006D3D40 /* app-ui */,
+				EC21466D215CBF71006D3D40 /* app-config */,
 				EC214641215CBC88006D3D40 /* ViewController.swift */,
-				EC214643215CBC88006D3D40 /* Main.storyboard */,
-				EC214646215CBC8A006D3D40 /* Assets.xcassets */,
-				EC214648215CBC8A006D3D40 /* LaunchScreen.storyboard */,
 				EC21464B215CBC8A006D3D40 /* Info.plist */,
 			);
 			path = "iOS-Weather-App";
@@ -150,6 +162,52 @@
 				EC214661215CBC8A006D3D40 /* Info.plist */,
 			);
 			path = "iOS-Weather-AppUITests";
+			sourceTree = "<group>";
+		};
+		EC21466D215CBF71006D3D40 /* app-config */ = {
+			isa = PBXGroup;
+			children = (
+				EC21463F215CBC88006D3D40 /* AppDelegate.swift */,
+			);
+			path = "app-config";
+			sourceTree = "<group>";
+		};
+		EC21466E215CBF80006D3D40 /* app-ui */ = {
+			isa = PBXGroup;
+			children = (
+				EC214643215CBC88006D3D40 /* Main.storyboard */,
+				EC214648215CBC8A006D3D40 /* LaunchScreen.storyboard */,
+			);
+			path = "app-ui";
+			sourceTree = "<group>";
+		};
+		EC21466F215CBF96006D3D40 /* app-resource */ = {
+			isa = PBXGroup;
+			children = (
+				EC214646215CBC8A006D3D40 /* Assets.xcassets */,
+			);
+			path = "app-resource";
+			sourceTree = "<group>";
+		};
+		EC214670215CC199006D3D40 /* app-module */ = {
+			isa = PBXGroup;
+			children = (
+				EC214671215CC1A5006D3D40 /* homepage */,
+			);
+			path = "app-module";
+			sourceTree = "<group>";
+		};
+		EC214671215CC1A5006D3D40 /* homepage */ = {
+			isa = PBXGroup;
+			children = (
+				ECC49907215CC2D000D5F393 /* Homepage_Presenter.swift */,
+				ECC49908215CC2D000D5F393 /* Homepage_Router.swift */,
+				ECC49909215CC2D000D5F393 /* Homepage_ViewController.swift */,
+				ECC4990A215CC2D000D5F393 /* Homepage_Protocols.swift */,
+				ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */,
+				ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */,
+			);
+			path = homepage;
 			sourceTree = "<group>";
 		};
 		EF349CAAAC4F33E6D12E0FC7 /* Pods */ = {
@@ -273,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC49912215CC2D000D5F393 /* Homepage_ViewController.xib in Resources */,
 				EC21464A215CBC8A006D3D40 /* LaunchScreen.storyboard in Resources */,
 				EC214647215CBC8A006D3D40 /* Assets.xcassets in Resources */,
 				EC214645215CBC88006D3D40 /* Main.storyboard in Resources */,
@@ -401,6 +460,11 @@
 			files = (
 				EC214642215CBC88006D3D40 /* ViewController.swift in Sources */,
 				EC214640215CBC88006D3D40 /* AppDelegate.swift in Sources */,
+				ECC4990E215CC2D000D5F393 /* Homepage_Router.swift in Sources */,
+				ECC4990F215CC2D000D5F393 /* Homepage_ViewController.swift in Sources */,
+				ECC49911215CC2D000D5F393 /* Homepage_Interactor.swift in Sources */,
+				ECC4990D215CC2D000D5F393 /* Homepage_Presenter.swift in Sources */,
+				ECC49910215CC2D000D5F393 /* Homepage_Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
