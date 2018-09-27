@@ -23,6 +23,7 @@
 		ECC49910215CC2D000D5F393 /* Homepage_Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4990A215CC2D000D5F393 /* Homepage_Protocols.swift */; };
 		ECC49911215CC2D000D5F393 /* Homepage_Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */; };
 		ECC49912215CC2D000D5F393 /* Homepage_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */; };
+		ECC49915215CDC3000D5F393 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49914215CDC3000D5F393 /* AppNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		ECC4990A215CC2D000D5F393 /* Homepage_Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_Protocols.swift; sourceTree = "<group>"; };
 		ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_Interactor.swift; sourceTree = "<group>"; };
 		ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Homepage_ViewController.xib; sourceTree = "<group>"; };
+		ECC49914215CDC3000D5F393 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		EC21463E215CBC88006D3D40 /* iOS-Weather-App */ = {
 			isa = PBXGroup;
 			children = (
+				ECC49913215CDBE300D5F393 /* app-component */,
 				EC214670215CC199006D3D40 /* app-module */,
 				EC21466F215CBF96006D3D40 /* app-resource */,
 				EC21466E215CBF80006D3D40 /* app-ui */,
@@ -208,6 +211,14 @@
 				ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */,
 			);
 			path = homepage;
+			sourceTree = "<group>";
+		};
+		ECC49913215CDBE300D5F393 /* app-component */ = {
+			isa = PBXGroup;
+			children = (
+				ECC49914215CDC3000D5F393 /* AppNavigationController.swift */,
+			);
+			path = "app-component";
 			sourceTree = "<group>";
 		};
 		EF349CAAAC4F33E6D12E0FC7 /* Pods */ = {
@@ -388,6 +399,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-iOS-Weather-App/Pods-iOS-Weather-App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -398,6 +411,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -463,6 +478,7 @@
 				ECC4990E215CC2D000D5F393 /* Homepage_Router.swift in Sources */,
 				ECC4990F215CC2D000D5F393 /* Homepage_ViewController.swift in Sources */,
 				ECC49911215CC2D000D5F393 /* Homepage_Interactor.swift in Sources */,
+				ECC49915215CDC3000D5F393 /* AppNavigationController.swift in Sources */,
 				ECC4990D215CC2D000D5F393 /* Homepage_Presenter.swift in Sources */,
 				ECC49910215CC2D000D5F393 /* Homepage_Protocols.swift in Sources */,
 			);

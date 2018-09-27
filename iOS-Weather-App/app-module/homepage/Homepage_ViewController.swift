@@ -13,9 +13,44 @@ import UIKit
 class Homepage_ViewController: UIViewController, Homepage_ViewProtocol {
 
 	var presenter: Homepage_PresenterProtocol?
-
+    @IBOutlet weak var tableforecastTableView: UITableView!
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        prepareNavigationItem()
+        
+        tableforecastTableView.delegate = self
+        tableforecastTableView.dataSource = self
     }
 
+}
+
+// Navigation
+extension Homepage_ViewController{
+    fileprivate func prepareNavigationItem() {
+        navigationItem.titleLabel.text = "Homepage"
+        // navigationItem.detailLabel.text = "Find your weather"
+    }
+}
+
+extension Homepage_ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Homepage_Cell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+}
+
+class Homepage_Cell:UITableViewCell{
+    
 }

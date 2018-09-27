@@ -16,7 +16,8 @@ class Homepage_Router: Homepage_WireframeProtocol {
     
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
-        let view = Homepage_ViewController(nibName: nil, bundle: nil)
+        // let view = Homepage_ViewController(nibName: nil, bundle: nil)
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homepageview") as! Homepage_ViewController
         let interactor = Homepage_Interactor()
         let router = Homepage_Router()
         let presenter = Homepage_Presenter(interface: view, interactor: interactor, router: router)

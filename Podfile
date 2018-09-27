@@ -10,6 +10,7 @@ target 'iOS-Weather-App' do
   pod 'AlamofireObjectMapper'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
+  pod 'Material'
 
   target 'iOS-Weather-AppTests' do
     inherit! :search_paths
