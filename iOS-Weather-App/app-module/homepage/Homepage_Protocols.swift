@@ -9,24 +9,30 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: Wireframe -
 protocol Homepage_WireframeProtocol: class {
-
+    func pushToSearchScreen(navigationConroller:UINavigationController)
 }
 //MARK: Presenter -
 protocol Homepage_PresenterProtocol: class {
-
+    func startFetchingWeather()
+    func weatherFetchedSuccess(weatherForcast:WeatherForcast)
+    func weatherFetchFailed()
+    // func showMovieController(navigationController:UINavigationController)
 }
 
 //MARK: Interactor -
 protocol Homepage_InteractorProtocol: class {
-
-  var presenter: Homepage_PresenterProtocol?  { get set }
+    func fetchForecast()
+    var presenter: Homepage_PresenterProtocol?  { get set }
 }
 
 //MARK: View -
 protocol Homepage_ViewProtocol: class {
-
-  var presenter: Homepage_PresenterProtocol?  { get set }
+    func showWeather(weatherForcast:WeatherForcast)
+    func showError()
+    
+    var presenter: Homepage_PresenterProtocol?  { get set }
 }

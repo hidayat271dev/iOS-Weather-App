@@ -9,14 +9,28 @@
 //
 
 import UIKit
+import Material
+import SDWebImage
 
 class Homepage_ViewController: UIViewController, Homepage_ViewProtocol {
 
 	var presenter: Homepage_PresenterProtocol?
+    
+    fileprivate var searchButton: IconButton!
+    fileprivate var weatherData:WeatherForcast?
+    
     @IBOutlet weak var tableforecastTableView: UITableView!
+    @IBOutlet weak var dateWeatherLabel: UILabel!
+    @IBOutlet weak var temperaturWeatherLabel: UILabel!
+    @IBOutlet weak var locationWeatherLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var cloudLabel: UILabel!
     
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter?.startFetchingWeather()
+        // showProgressIndicator(view: self.view)
         
         prepareNavigationItem()
         
@@ -29,18 +43,38 @@ class Homepage_ViewController: UIViewController, Homepage_ViewProtocol {
 // Navigation
 extension Homepage_ViewController{
     fileprivate func prepareNavigationItem() {
+        prepareSearchButton()
+        navigationItem.rightViews = [searchButton]
         navigationItem.titleLabel.text = "Homepage"
-        // navigationItem.detailLabel.text = "Find your weather"
+    }
+    fileprivate func prepareSearchButton() {
+        searchButton = IconButton(image: Icon.cm.search)
     }
 }
 
 extension Homepage_ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        // return 7
+        if let data = self.weatherData?.forecast.forecastday { return data.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Homepage_Cell
+        
+        if let data = self.weatherData?.forecast.forecastday {
+            let temp = data[indexPath.row]
+            
+            cell.dateLabel.text = temp.date
+            cell.weatherStatusLabel.text =  temp.day.condition.text
+            cell.weatherImage.sd_setImage(with: URL(string: "https:" + temp.day.condition.icon), placeholderImage: UIImage(named: "no_image_placeholder"))
+            cell.weatherTemperatureLabel.text =  String(format:"%.2f", temp.day.avgtemp_c) + "° C"
+            cell.weatherTemperatureMaxLabel.text = String(format:"%.2f", temp.day.maxtemp_c) + "° C"
+            cell.weatherTemperatureMinLabel.text = String(format:"%.2f", temp.day.mintemp_c) + "° C"
+            cell.dayLabel.text = getDayOfWeek(temp.date)
+        }
         
         return cell
     }
@@ -51,6 +85,45 @@ extension Homepage_ViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
+extension Homepage_ViewController{
+    func showWeather(weatherForcast: WeatherForcast) {
+        self.weatherData = weatherForcast
+        self.tableforecastTableView.reloadData()
+        self.dateWeatherLabel.text = weatherForcast.location.localtime
+        self.temperaturWeatherLabel.text = String(format:"%.2f", weatherForcast.current.temp_c) + "° C"
+        self.humidityLabel.text = String(format:"%.2f", weatherForcast.current.humidity)
+        self.cloudLabel.text = String(format:"%.2f", weatherForcast.current.cloud)
+        self.locationWeatherLabel.text = weatherForcast.location.name + "\n" + weatherForcast.location.region + ", " + weatherForcast.location.country
+        // hideProgressIndicator(view: self.view)
+
+    }
+    
+    func showError() {
+        // hideProgressIndicator(view: self.view)
+        let alert = UIAlertController(title: "Alert", message: "Problem Fetching Data", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getDayOfWeek(_ today:String) -> String? {
+        let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let todayDate = formatter.date(from: today) else { return nil }
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: todayDate)
+        return day[weekDay-1]
+    }
+}
+
 class Homepage_Cell:UITableViewCell{
+    
+    @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var weatherStatusLabel: UILabel!
+    @IBOutlet weak var weatherTemperatureLabel: UILabel!
+    @IBOutlet weak var weatherTemperatureMinLabel: UILabel!
+    @IBOutlet weak var weatherTemperatureMaxLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
     
 }

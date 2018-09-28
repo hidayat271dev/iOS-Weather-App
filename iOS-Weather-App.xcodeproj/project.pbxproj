@@ -24,6 +24,8 @@
 		ECC49911215CC2D000D5F393 /* Homepage_Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */; };
 		ECC49912215CC2D000D5F393 /* Homepage_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */; };
 		ECC49915215CDC3000D5F393 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49914215CDC3000D5F393 /* AppNavigationController.swift */; };
+		ECC49918215DCCFD00D5F393 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49917215DCCFD00D5F393 /* Configuration.swift */; };
+		ECC4991B215DCD4900D5F393 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4991A215DCD4900D5F393 /* WeatherResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage_Interactor.swift; sourceTree = "<group>"; };
 		ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Homepage_ViewController.xib; sourceTree = "<group>"; };
 		ECC49914215CDC3000D5F393 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		ECC49917215DCCFD00D5F393 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		ECC4991A215DCD4900D5F393 /* WeatherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 		EC21463E215CBC88006D3D40 /* iOS-Weather-App */ = {
 			isa = PBXGroup;
 			children = (
+				ECC49919215DCD1D00D5F393 /* app-entity */,
 				ECC49913215CDBE300D5F393 /* app-component */,
 				EC214670215CC199006D3D40 /* app-module */,
 				EC21466F215CBF96006D3D40 /* app-resource */,
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				EC21463F215CBC88006D3D40 /* AppDelegate.swift */,
+				ECC49917215DCCFD00D5F393 /* Configuration.swift */,
 			);
 			path = "app-config";
 			sourceTree = "<group>";
@@ -203,10 +209,10 @@
 		EC214671215CC1A5006D3D40 /* homepage */ = {
 			isa = PBXGroup;
 			children = (
+				ECC4990A215CC2D000D5F393 /* Homepage_Protocols.swift */,
 				ECC49907215CC2D000D5F393 /* Homepage_Presenter.swift */,
 				ECC49908215CC2D000D5F393 /* Homepage_Router.swift */,
 				ECC49909215CC2D000D5F393 /* Homepage_ViewController.swift */,
-				ECC4990A215CC2D000D5F393 /* Homepage_Protocols.swift */,
 				ECC4990B215CC2D000D5F393 /* Homepage_Interactor.swift */,
 				ECC4990C215CC2D000D5F393 /* Homepage_ViewController.xib */,
 			);
@@ -219,6 +225,14 @@
 				ECC49914215CDC3000D5F393 /* AppNavigationController.swift */,
 			);
 			path = "app-component";
+			sourceTree = "<group>";
+		};
+		ECC49919215DCD1D00D5F393 /* app-entity */ = {
+			isa = PBXGroup;
+			children = (
+				ECC4991A215DCD4900D5F393 /* WeatherResult.swift */,
+			);
+			path = "app-entity";
 			sourceTree = "<group>";
 		};
 		EF349CAAAC4F33E6D12E0FC7 /* Pods */ = {
@@ -476,7 +490,9 @@
 				EC214642215CBC88006D3D40 /* ViewController.swift in Sources */,
 				EC214640215CBC88006D3D40 /* AppDelegate.swift in Sources */,
 				ECC4990E215CC2D000D5F393 /* Homepage_Router.swift in Sources */,
+				ECC49918215DCCFD00D5F393 /* Configuration.swift in Sources */,
 				ECC4990F215CC2D000D5F393 /* Homepage_ViewController.swift in Sources */,
+				ECC4991B215DCD4900D5F393 /* WeatherResult.swift in Sources */,
 				ECC49911215CC2D000D5F393 /* Homepage_Interactor.swift in Sources */,
 				ECC49915215CDC3000D5F393 /* AppNavigationController.swift in Sources */,
 				ECC4990D215CC2D000D5F393 /* Homepage_Presenter.swift in Sources */,

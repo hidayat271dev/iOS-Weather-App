@@ -23,3 +23,17 @@ class Homepage_Presenter: Homepage_PresenterProtocol {
     }
 
 }
+
+extension Homepage_Presenter{
+    func startFetchingWeather() {
+        interactor?.fetchForecast()
+    }
+    
+    func weatherFetchedSuccess(weatherForcast: WeatherForcast) {
+        view?.showWeather(weatherForcast: weatherForcast)
+    }
+    
+    func weatherFetchFailed() {
+        view?.showError()
+    }
+}

@@ -84,7 +84,7 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-mP-wbM">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-mP-wbM">
                                         <rect key="frame" x="0.0" y="195.5" width="375" height="551"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -198,6 +198,15 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dateLabel" destination="4XA-Bx-h22" id="Wj9-HF-HmS"/>
+                                                    <outlet property="dayLabel" destination="zQ6-Vd-nKJ" id="XkK-U1-xHO"/>
+                                                    <outlet property="weatherImage" destination="Rai-dN-2GA" id="DEy-hJ-Z1e"/>
+                                                    <outlet property="weatherStatusLabel" destination="tFn-r4-bCc" id="VZ8-md-mf0"/>
+                                                    <outlet property="weatherTemperatureLabel" destination="Ybu-mn-llK" id="UH1-XF-Zo3"/>
+                                                    <outlet property="weatherTemperatureMaxLabel" destination="LpC-Sr-AHq" id="qcu-mG-9eF"/>
+                                                    <outlet property="weatherTemperatureMinLabel" destination="sJN-hV-73g" id="geQ-wv-Ke0"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -231,7 +240,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="cloudLabel" destination="FEQ-hc-Erp" id="vTt-4Y-2sJ"/>
+                        <outlet property="dateWeatherLabel" destination="dKw-IO-ISg" id="Sxg-7L-UZL"/>
+                        <outlet property="humidityLabel" destination="3zx-x0-7K5" id="452-Df-UA0"/>
+                        <outlet property="locationWeatherLabel" destination="Waz-wA-U9r" id="FRk-9Y-Pdd"/>
                         <outlet property="tableforecastTableView" destination="IDV-mP-wbM" id="PfR-Vv-3oT"/>
+                        <outlet property="temperaturWeatherLabel" destination="wE4-S2-Cxe" id="0D3-po-8Wo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

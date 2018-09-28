@@ -29,3 +29,9 @@ class Homepage_Router: Homepage_WireframeProtocol {
         return view
     }
 }
+
+extension Homepage_Router{
+    func pushToSearchScreen(navigationConroller: UINavigationController) {
+        
+    }
+}
