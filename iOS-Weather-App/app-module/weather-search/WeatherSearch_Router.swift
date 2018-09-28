@@ -16,7 +16,7 @@ class WeatherSearch_Router: WeatherSearch_WireframeProtocol {
     
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
-        let view = WeatherSearch_ViewController(nibName: nil, bundle: nil)
+        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "weathersearchview") as! WeatherSearch_ViewController
         let interactor = WeatherSearch_Interactor()
         let router = WeatherSearch_Router()
         let presenter = WeatherSearch_Presenter(interface: view, interactor: interactor, router: router)

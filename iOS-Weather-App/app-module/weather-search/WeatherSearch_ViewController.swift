@@ -10,12 +10,14 @@
 
 import UIKit
 import Material
+import MapKit
 
 class WeatherSearch_ViewController: UIViewController, WeatherSearch_ViewProtocol {
 
 	var presenter: WeatherSearch_PresenterProtocol?
     fileprivate var weatherData:WeatherForcast?
     
+    @IBOutlet weak var mapViewKit: MKMapView!
     @IBOutlet weak var forecastTable: UITableView!
     @IBOutlet weak var dateWeatherLabel: UILabel!
     @IBOutlet weak var temperaturWeatherLabel: UILabel!
@@ -24,7 +26,7 @@ class WeatherSearch_ViewController: UIViewController, WeatherSearch_ViewProtocol
 	override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter?.startFetchingWeather(query: "Bandung")
+        presenter?.startFetchingWeather(query: "Jakarta")
         
         prepareSearchBar()
         
@@ -36,17 +38,33 @@ class WeatherSearch_ViewController: UIViewController, WeatherSearch_ViewProtocol
 
 extension WeatherSearch_ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        // return 7
+        if let data = self.weatherData?.forecast.forecastday { return data.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Homepage_Cell
         
+        if let data = self.weatherData?.forecast.forecastday {
+            let temp = data[indexPath.row]
+            
+            cell.dateLabel.text = temp.date
+            cell.weatherStatusLabel.text =  temp.day.condition.text
+            cell.weatherImage.sd_setImage(with: URL(string: "https:" + temp.day.condition.icon), placeholderImage: UIImage(named: "no_image_placeholder"))
+            cell.weatherTemperatureLabel.text =  String(format:"%.2f", temp.day.avgtemp_c) + "° C"
+            cell.weatherTemperatureMaxLabel.text = String(format:"%.2f", temp.day.maxtemp_c) + "° C"
+            cell.weatherTemperatureMinLabel.text = String(format:"%.2f", temp.day.mintemp_c) + "° C"
+            cell.dayLabel.text = getDayOfWeek(temp.date)
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 100
     }
 }
 
@@ -84,6 +102,10 @@ extension WeatherSearch_ViewController{
         self.temperaturWeatherLabel.text = String(format:"%.2f", weatherForcast.current.temp_c) + "° C"
         self.locationWeatherLabel.text = weatherForcast.location.name + "\n" + weatherForcast.location.region + ", " + weatherForcast.location.country
         // hideProgressIndicator(view: self.view)
+        let center = CLLocationCoordinate2D(latitude: weatherForcast.location.lat, longitude: weatherForcast.location.lon)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        
+        mapViewKit.setRegion(region, animated: true)
         
     }
     

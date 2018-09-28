@@ -11,6 +11,8 @@ target 'iOS-Weather-App' do
   pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'Material'
+  
+  pod 'IQKeyboardManagerSwift'
 
   target 'iOS-Weather-AppTests' do
     inherit! :search_paths
