@@ -26,6 +26,13 @@
 		ECC49915215CDC3000D5F393 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49914215CDC3000D5F393 /* AppNavigationController.swift */; };
 		ECC49918215DCCFD00D5F393 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49917215DCCFD00D5F393 /* Configuration.swift */; };
 		ECC4991B215DCD4900D5F393 /* WeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4991A215DCD4900D5F393 /* WeatherResult.swift */; };
+		ECC49923215DDA8100D5F393 /* WeatherSearch_Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4991D215DDA8100D5F393 /* WeatherSearch_Presenter.swift */; };
+		ECC49924215DDA8100D5F393 /* WeatherSearch_Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4991E215DDA8100D5F393 /* WeatherSearch_Router.swift */; };
+		ECC49925215DDA8100D5F393 /* WeatherSearch_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4991F215DDA8100D5F393 /* WeatherSearch_ViewController.swift */; };
+		ECC49926215DDA8100D5F393 /* WeatherSearch_Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49920215DDA8100D5F393 /* WeatherSearch_Protocols.swift */; };
+		ECC49927215DDA8100D5F393 /* WeatherSearch_Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49921215DDA8100D5F393 /* WeatherSearch_Interactor.swift */; };
+		ECC49928215DDA8100D5F393 /* WeatherSearch_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC49922215DDA8100D5F393 /* WeatherSearch_ViewController.xib */; };
+		ECC4992A215DDAAB00D5F393 /* AppSearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49929215DDAAB00D5F393 /* AppSearchBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,13 @@
 		ECC49914215CDC3000D5F393 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		ECC49917215DCCFD00D5F393 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		ECC4991A215DCD4900D5F393 /* WeatherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResult.swift; sourceTree = "<group>"; };
+		ECC4991D215DDA8100D5F393 /* WeatherSearch_Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearch_Presenter.swift; sourceTree = "<group>"; };
+		ECC4991E215DDA8100D5F393 /* WeatherSearch_Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearch_Router.swift; sourceTree = "<group>"; };
+		ECC4991F215DDA8100D5F393 /* WeatherSearch_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearch_ViewController.swift; sourceTree = "<group>"; };
+		ECC49920215DDA8100D5F393 /* WeatherSearch_Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearch_Protocols.swift; sourceTree = "<group>"; };
+		ECC49921215DDA8100D5F393 /* WeatherSearch_Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearch_Interactor.swift; sourceTree = "<group>"; };
+		ECC49922215DDA8100D5F393 /* WeatherSearch_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherSearch_ViewController.xib; sourceTree = "<group>"; };
+		ECC49929215DDAAB00D5F393 /* AppSearchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +215,7 @@
 		EC214670215CC199006D3D40 /* app-module */ = {
 			isa = PBXGroup;
 			children = (
+				ECC4991C215DDA5700D5F393 /* weather-search */,
 				EC214671215CC1A5006D3D40 /* homepage */,
 			);
 			path = "app-module";
@@ -223,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC49914215CDC3000D5F393 /* AppNavigationController.swift */,
+				ECC49929215DDAAB00D5F393 /* AppSearchBarController.swift */,
 			);
 			path = "app-component";
 			sourceTree = "<group>";
@@ -233,6 +249,19 @@
 				ECC4991A215DCD4900D5F393 /* WeatherResult.swift */,
 			);
 			path = "app-entity";
+			sourceTree = "<group>";
+		};
+		ECC4991C215DDA5700D5F393 /* weather-search */ = {
+			isa = PBXGroup;
+			children = (
+				ECC4991D215DDA8100D5F393 /* WeatherSearch_Presenter.swift */,
+				ECC4991E215DDA8100D5F393 /* WeatherSearch_Router.swift */,
+				ECC4991F215DDA8100D5F393 /* WeatherSearch_ViewController.swift */,
+				ECC49920215DDA8100D5F393 /* WeatherSearch_Protocols.swift */,
+				ECC49921215DDA8100D5F393 /* WeatherSearch_Interactor.swift */,
+				ECC49922215DDA8100D5F393 /* WeatherSearch_ViewController.xib */,
+			);
+			path = "weather-search";
 			sourceTree = "<group>";
 		};
 		EF349CAAAC4F33E6D12E0FC7 /* Pods */ = {
@@ -356,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC49928215DDA8100D5F393 /* WeatherSearch_ViewController.xib in Resources */,
 				ECC49912215CC2D000D5F393 /* Homepage_ViewController.xib in Resources */,
 				EC21464A215CBC8A006D3D40 /* LaunchScreen.storyboard in Resources */,
 				EC214647215CBC8A006D3D40 /* Assets.xcassets in Resources */,
@@ -492,11 +522,17 @@
 				ECC4990E215CC2D000D5F393 /* Homepage_Router.swift in Sources */,
 				ECC49918215DCCFD00D5F393 /* Configuration.swift in Sources */,
 				ECC4990F215CC2D000D5F393 /* Homepage_ViewController.swift in Sources */,
+				ECC49925215DDA8100D5F393 /* WeatherSearch_ViewController.swift in Sources */,
+				ECC49927215DDA8100D5F393 /* WeatherSearch_Interactor.swift in Sources */,
+				ECC4992A215DDAAB00D5F393 /* AppSearchBarController.swift in Sources */,
+				ECC49926215DDA8100D5F393 /* WeatherSearch_Protocols.swift in Sources */,
 				ECC4991B215DCD4900D5F393 /* WeatherResult.swift in Sources */,
 				ECC49911215CC2D000D5F393 /* Homepage_Interactor.swift in Sources */,
 				ECC49915215CDC3000D5F393 /* AppNavigationController.swift in Sources */,
+				ECC49923215DDA8100D5F393 /* WeatherSearch_Presenter.swift in Sources */,
 				ECC4990D215CC2D000D5F393 /* Homepage_Presenter.swift in Sources */,
 				ECC49910215CC2D000D5F393 /* Homepage_Protocols.swift in Sources */,
+				ECC49924215DDA8100D5F393 /* WeatherSearch_Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
