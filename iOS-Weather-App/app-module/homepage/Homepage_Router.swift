@@ -32,6 +32,8 @@ class Homepage_Router: Homepage_WireframeProtocol {
 
 extension Homepage_Router{
     func pushToSearchScreen(navigationConroller: UINavigationController) {
+        let weatherView = AppSearchBarController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "weathersearchview"))
         
+        viewController!.present(weatherView, animated: true, completion: nil)
     }
 }

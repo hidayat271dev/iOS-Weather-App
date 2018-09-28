@@ -13,9 +13,29 @@ import UIKit
 class WeatherSearch_ViewController: UIViewController, WeatherSearch_ViewProtocol {
 
 	var presenter: WeatherSearch_PresenterProtocol?
-
+    @IBOutlet weak var forecastTable: UITableView!
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        forecastTable.delegate = self
+        forecastTable.dataSource = self
     }
 
+}
+
+extension WeatherSearch_ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Homepage_Cell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
 }

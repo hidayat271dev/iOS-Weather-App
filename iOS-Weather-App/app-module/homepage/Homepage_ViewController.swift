@@ -49,6 +49,13 @@ extension Homepage_ViewController{
     }
     fileprivate func prepareSearchButton() {
         searchButton = IconButton(image: Icon.cm.search)
+        
+        searchButton.addTarget(self, action: #selector(handleSearchAction), for: .touchUpInside)
+    }
+    
+    @objc
+    fileprivate func handleSearchAction(){
+        (presenter as! Homepage_Presenter).router.pushToSearchScreen(navigationConroller: self.navigationController!)
     }
 }
 

@@ -20,7 +20,6 @@ protocol Homepage_PresenterProtocol: class {
     func startFetchingWeather()
     func weatherFetchedSuccess(weatherForcast:WeatherForcast)
     func weatherFetchFailed()
-    // func showMovieController(navigationController:UINavigationController)
 }
 
 //MARK: Interactor -

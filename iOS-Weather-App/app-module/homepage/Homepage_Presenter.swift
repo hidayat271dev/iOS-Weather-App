@@ -14,7 +14,7 @@ class Homepage_Presenter: Homepage_PresenterProtocol {
 
     weak private var view: Homepage_ViewProtocol?
     var interactor: Homepage_InteractorProtocol?
-    private let router: Homepage_WireframeProtocol
+    public let router: Homepage_WireframeProtocol
 
     init(interface: Homepage_ViewProtocol, interactor: Homepage_InteractorProtocol?, router: Homepage_WireframeProtocol) {
         self.view = interface

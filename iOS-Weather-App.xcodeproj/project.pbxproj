@@ -33,6 +33,7 @@
 		ECC49927215DDA8100D5F393 /* WeatherSearch_Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49921215DDA8100D5F393 /* WeatherSearch_Interactor.swift */; };
 		ECC49928215DDA8100D5F393 /* WeatherSearch_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC49922215DDA8100D5F393 /* WeatherSearch_ViewController.xib */; };
 		ECC4992A215DDAAB00D5F393 /* AppSearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC49929215DDAAB00D5F393 /* AppSearchBarController.swift */; };
+		ECC4992C215DDF1F00D5F393 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC4992B215DDF1F00D5F393 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		ECC49921215DDA8100D5F393 /* WeatherSearch_Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearch_Interactor.swift; sourceTree = "<group>"; };
 		ECC49922215DDA8100D5F393 /* WeatherSearch_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherSearch_ViewController.xib; sourceTree = "<group>"; };
 		ECC49929215DDAAB00D5F393 /* AppSearchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchBarController.swift; sourceTree = "<group>"; };
+		ECC4992B215DDF1F00D5F393 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC4992C215DDF1F00D5F393 /* MapKit.framework in Frameworks */,
 				8EE9D4F73CC9615B09029D2B /* Pods_iOS_Weather_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +127,7 @@
 		B1BD33A9524046FB68016F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECC4992B215DDF1F00D5F393 /* MapKit.framework */,
 				78D6637A8975336CE5E10814 /* Pods_iOS_Weather_App.framework */,
 				D781A10C6B3719A4C0CD9A5D /* Pods_iOS_Weather_AppTests.framework */,
 				77AEAC7E277AD0AF1CAE057D /* Pods_iOS_Weather_AppUITests.framework */,

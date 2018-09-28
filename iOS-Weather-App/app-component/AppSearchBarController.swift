@@ -49,7 +49,7 @@ extension AppSearchBarController {
 extension AppSearchBarController{
     @objc
     fileprivate func handleBackButton() {
-        let viewController = AppNavigationController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homepageview"))
+        let viewController = AppNavigationController(rootViewController: Homepage_Router.createModule())
         
         present(viewController, animated: true, completion: nil)
     }
