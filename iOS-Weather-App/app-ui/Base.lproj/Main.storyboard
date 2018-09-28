@@ -430,7 +430,10 @@
                         <viewLayoutGuide key="safeArea" id="XbK-hT-4m3"/>
                     </view>
                     <connections>
+                        <outlet property="dateWeatherLabel" destination="0Hh-UD-7az" id="FDL-bT-UIP"/>
                         <outlet property="forecastTable" destination="hMv-WP-qGb" id="yy2-Rq-eia"/>
+                        <outlet property="locationWeatherLabel" destination="BpK-8Y-1fv" id="xNT-Ce-YXD"/>
+                        <outlet property="temperaturWeatherLabel" destination="G6X-5h-iVc" id="uVG-eH-cQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBq-70-9fb" userLabel="First Responder" sceneMemberID="firstResponder"/>

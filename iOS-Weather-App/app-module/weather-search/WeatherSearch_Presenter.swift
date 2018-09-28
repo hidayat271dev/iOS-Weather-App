@@ -23,3 +23,19 @@ class WeatherSearch_Presenter: WeatherSearch_PresenterProtocol {
     }
 
 }
+
+extension WeatherSearch_Presenter{
+    
+    func startFetchingWeather(query: String) {
+        interactor?.fetchForecast(query: query)
+    }
+    
+    func weatherFetchedSuccess(weatherForcast: WeatherForcast) {
+        view?.showWeather(weatherForcast: weatherForcast)
+    }
+    
+    func weatherFetchFailed() {
+        view?.showError()
+    }
+
+}

@@ -9,8 +9,34 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
 
 class WeatherSearch_Interactor: WeatherSearch_InteractorProtocol {
-
+    
     weak var presenter: WeatherSearch_PresenterProtocol?
+}
+
+extension WeatherSearch_Interactor{
+    func fetchForecast(query: String) {
+        let URL3 = base_url + "?key=" + key + "&q=" + query + "&days=7"
+        
+        let urlString = URL3.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        Alamofire.request(urlString!).responseObject { (response: DataResponse<WeatherForcast>) in
+            
+            switch response.response?.statusCode{
+            case 200:
+                let resultWeatherForecast = response.result.value!
+                self.presenter?.weatherFetchedSuccess(weatherForcast: resultWeatherForecast)
+                print("Request Success")
+                break
+            default:
+                self.presenter?.weatherFetchFailed()
+                print("Request failed")
+                break
+            }
+            
+        }
+    }
 }

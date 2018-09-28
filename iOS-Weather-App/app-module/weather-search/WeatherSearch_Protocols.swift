@@ -16,17 +16,20 @@ protocol WeatherSearch_WireframeProtocol: class {
 }
 //MARK: Presenter -
 protocol WeatherSearch_PresenterProtocol: class {
-
+    func startFetchingWeather(query: String)
+    func weatherFetchedSuccess(weatherForcast:WeatherForcast)
+    func weatherFetchFailed()
 }
 
 //MARK: Interactor -
 protocol WeatherSearch_InteractorProtocol: class {
-
-  var presenter: WeatherSearch_PresenterProtocol?  { get set }
+    func fetchForecast(query: String)
+    var presenter: WeatherSearch_PresenterProtocol?  { get set }
 }
 
 //MARK: View -
 protocol WeatherSearch_ViewProtocol: class {
-
-  var presenter: WeatherSearch_PresenterProtocol?  { get set }
+    func showWeather(weatherForcast:WeatherForcast)
+    func showError()
+    var presenter: WeatherSearch_PresenterProtocol?  { get set }
 }

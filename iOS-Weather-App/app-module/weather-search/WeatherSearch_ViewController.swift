@@ -9,14 +9,24 @@
 //
 
 import UIKit
+import Material
 
 class WeatherSearch_ViewController: UIViewController, WeatherSearch_ViewProtocol {
 
 	var presenter: WeatherSearch_PresenterProtocol?
+    fileprivate var weatherData:WeatherForcast?
+    
     @IBOutlet weak var forecastTable: UITableView!
+    @IBOutlet weak var dateWeatherLabel: UILabel!
+    @IBOutlet weak var temperaturWeatherLabel: UILabel!
+    @IBOutlet weak var locationWeatherLabel: UILabel!
     
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter?.startFetchingWeather(query: "Bandung")
+        
+        prepareSearchBar()
         
         forecastTable.delegate = self
         forecastTable.dataSource = self
@@ -37,5 +47,60 @@ extension WeatherSearch_ViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
+    }
+}
+
+extension WeatherSearch_ViewController: SearchBarDelegate{
+    internal func prepareSearchBar() {
+        // Access the searchBar.
+        guard let searchBar = searchBarController?.searchBar else {
+            return
+        }
+        
+        searchBar.delegate = self
+    }
+    
+    func searchBar(searchBar: SearchBar, didClear textField: UITextField, with text: String?) {
+        print("clear")
+    }
+    
+    func searchBar(searchBar: SearchBar, didChange textField: UITextField, with text: String?) {
+        
+        guard let searching = text, (text?.count)! > 5 else{
+            return
+        }
+        
+        presenter?.startFetchingWeather(query: searching)
+        
+    }
+}
+
+extension WeatherSearch_ViewController{
+    
+    func showWeather(weatherForcast: WeatherForcast) {
+        self.weatherData = weatherForcast
+        self.forecastTable.reloadData()
+        self.dateWeatherLabel.text = weatherForcast.location.localtime
+        self.temperaturWeatherLabel.text = String(format:"%.2f", weatherForcast.current.temp_c) + "° C"
+        self.locationWeatherLabel.text = weatherForcast.location.name + "\n" + weatherForcast.location.region + ", " + weatherForcast.location.country
+        // hideProgressIndicator(view: self.view)
+        
+    }
+    
+    func showError() {
+        // hideProgressIndicator(view: self.view)
+        let alert = UIAlertController(title: "Alert", message: "Problem Fetching Data", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getDayOfWeek(_ today:String) -> String? {
+        let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let todayDate = formatter.date(from: today) else { return nil }
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: todayDate)
+        return day[weekDay-1]
     }
 }
